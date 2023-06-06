@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="col-md-6">
+    <h2>Edit Article</h2>
+    <h3 id="id">{{post.id}}</h3>
+
+    <form class="form post-form">
+      <div class="form-group">
+        <label for="title">Title:</label>
+        <input class="form-input" type="text" id="title" value={{post.title}}/>
+        {{!-- this line above needs the backend to render it with the value field in --}}
+      </div>
+      <div class="form-group">
+        <label for="article">Article:</label>
+        <input class="form-input" type="text" id="article" value={{post.article}} />
+         {{!-- this line above needs the backend to render it with the value field in --}}
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary" type="submit">save</button>
+      </div>
+    </form>
+  </div>

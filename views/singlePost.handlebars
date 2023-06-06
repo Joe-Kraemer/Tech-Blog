@@ -1,0 +1,32 @@
+//addformtoaddcomment
+   <div class="text-center">
+  <h2>{{title}}</h2>
+  <h3>Created by {{user.name}} on {{format_date date_created}}</h3>
+  <p>{{article}}</p>
+  {{#each comments as |comment| }}
+<div class="row mb-4 comment">
+  <div class="col-md-5">
+    <h2>
+      {{comment.comment}}
+    </h2>
+    <p>{{user.name}} on {{format_date comment.date_created}}</p>
+  </div>
+</div>
+{{/each}}
+
+  <div class="row">
+  <div class="col-md-6">
+    <h2>Comment on this Post</h2>
+
+    <form class="form comment-form">
+      <div class="form-group">
+        <label for="comment">Comment:</label>
+        <input class="form-input" type="text" id="comment" />
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary" type="submit">submit</button>
+      </div>
+    </form>
+  </div>
+</div> 
+   

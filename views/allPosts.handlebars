@@ -1,0 +1,15 @@
+<!-- Loop over each object in the projects array -->
+    <h2>
+hy my name is joe
+    </h2>
+
+{{#each posts as |post| }}
+<div class="row mb-4 post">
+  <div class="col-md-5">
+    <h2>
+      <a href="/post/{{post.id}}">{{post.user}}&nbsp;Wrote</a>
+    </h2>
+    <p>{{post.title}} on {{format_date post.date_created}}</p>
+  </div>
+</div>
+{{/each}}
