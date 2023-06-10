@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const Post = require("../../models/Post")
 router.post('/post', async (req, res) => {
     try {
         const newPost = await Post.create({
@@ -8,6 +9,7 @@ router.post('/post', async (req, res) => {
     
         res.status(200).json(newPost);
       } catch (err) {
+        console.log(err)
         res.status(400).json(err);
       }
     
@@ -36,7 +38,7 @@ response.postComments = postComments
     res.status(400).json(err);
   }
 });
-  router.delete('/post/:id', withAuth, async (req, res) => {
+  router.delete('/post/:id', async (req, res) => {
     try {
       const postData = await Post.destroy({
         where: {
@@ -55,17 +57,22 @@ response.postComments = postComments
       res.status(500).json(err);
     }
   });
+     
   router.put("/post/:id", function (req, res,) {
-    Post.update(
-        {...req.body},
-    )
+    Post.update({...req.body},{ where: { id: req.params.id} })
+
     .then(function(rowsUpdated) {
+      console.log(rowsUpdated)
       res.status(200).json(rowsUpdated)
     })
-    .catch(error)
-{
-res.status(500).json(error)
-}
    })
    
 module.exports = router;
+
+
+// {   where: {
+//   id: req.params.id,
+// //   user_id: req.session.user_id,
+// },
+// ...req.body},
+
